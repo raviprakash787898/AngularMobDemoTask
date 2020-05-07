@@ -1,0 +1,23 @@
+<div>
+  <h1 class="ml-5">User Info</h1>
+
+  <ng-container>
+    <p-table [value]="curretUserData">
+      <ng-template pTemplate="header">
+          <tr>
+            <th class="ml-5" *ngFor="let header of userObj"> {{ header }} </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+          <tr class="ml-5">
+              <td class="ml-3" >{{user.id}}</td>
+              <td class="ml-3" >{{user.Name}}</td>
+              <td class="ml-3" >{{user.email}}</td>
+              <td class="ml-3" >{{user.companyname}}</td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </ng-container>
+  
+  <button class="mt-4" [routerLink]="['/']" [routerLinkActive]="['active']">Back</button>
+</div>

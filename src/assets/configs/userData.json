@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1001,
+    "Name": "Paramjit",
+    "email": "abc@gmail.com",
+    "companyname": "TCS"
+  },
+  {
+    "id": 1002,
+    "Name": "Jack",
+    "email": "jack@gmail.com",
+    "companyname": "CISCO"
+  },
+  {
+    "id": 1003,
+    "Name": "Bose",
+    "email": "bose@gmail.com",
+    "companyname": "FORD"
+  },
+  {
+    "id": 1004,
+    "Name": "Basc",
+    "email": "basc@gmail.com",
+    "companyname": "HYUNDAI"
+  },
+  {
+    "id": 1005,
+    "Name": "ABC",
+    "email": "abc@gmail.com",
+    "companyname": "FORD"
+  },
+  {
+    "id": 1006,
+    "Name": "Hello",
+    "email": "hello@gmail.com",
+    "companyname": "HYUNDAI"
+  }
+]
