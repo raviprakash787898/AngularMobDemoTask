@@ -1,23 +1,122 @@
-<div>
-  <h1 class="ml-5">User Info</h1>
+<section>
+  <div class="container ml-0">
+    <h1 class="ml-5">User Info</h1>
+    <button class="mt-4" [routerLink]="['/']" [routerLinkActive]="['active']">Back</button>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="d-flex flex-column" *ngFor="let user of userData; let i = index;">
+          <span (click)="showUser(user)" class="p-2 bg-color">{{user.Name}}</span>
+        </div>
+      </div>
+      <div class="col-lg-8 col-xs-12 col-md-12 mb-4">
 
-  <ng-container>
-    <p-table [value]="curretUserData">
-      <ng-template pTemplate="header">
-          <tr>
-            <th class="ml-5" *ngFor="let header of userObj"> {{ header }} </th>
-          </tr>
-      </ng-template>
-      <ng-template pTemplate="body" let-user>
-          <tr class="ml-5">
-              <td class="ml-3" >{{user.id}}</td>
-              <td class="ml-3" >{{user.Name}}</td>
-              <td class="ml-3" >{{user.email}}</td>
-              <td class="ml-3" >{{user.companyname}}</td>
-          </tr>
-      </ng-template>
-    </p-table>
-  </ng-container>
-  
-  <button class="mt-4" [routerLink]="['/']" [routerLinkActive]="['active']">Back</button>
-</div>
+
+        <div class="card profile-links">
+          <div class="card-body">
+            <div class="classic-tabs">
+              <ul class="nav tabs-cyan" id="myClassicTab" role="tablist">
+                <li class="nav-item">
+                  <a
+                    class="nav-link waves-light show active"
+                    id="search-tab-classic"
+                    data-toggle="tab"
+                    href="#search-classic"
+                    role="tab"
+                    aria-controls="search-classic"
+                    aria-selected="false"
+                    (click)="selectedTab = 'search'"
+                    >Overview</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link waves-light"
+                    id="review-tab-classic"
+                    data-toggle="tab"
+                    href="#review-classic"
+                    role="tab"
+                    aria-controls="review-classic"
+                    aria-selected="false"
+                    (click)="selectedTab = 'myHires'"
+                    >Comments</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link waves-light "
+                    id="saved-tab-classic"
+                    data-toggle="tab"
+                    href="#saved-classic"
+                    role="tab"
+                    aria-controls="saved-classic"
+                    aria-selected="true"
+                    (click)="selectedTab = 'saved'"
+                    >Sales </a
+                  >
+                </li>
+              </ul>
+              <div class="tab-content" id="accordionExample">
+                <div
+                  class="card tab-pane fade active show border-top-none"
+                  id="search-classic"
+                  role="tabpanel"
+                  aria-labelledby="search-tab-classic"
+                >
+                  <div
+                    class="card-body collapse show p-0"
+                    id="collapseOne"
+                    aria-labelledby="about-classic-a"
+                    data-parent="#accordionExample"
+                  >
+                  <ng-container>
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th scope="col" *ngFor="let header of userObj"> {{ header }}</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let curretUserData of curretUserData">
+                        <td>{{curretUserData.id}}</td>
+                        <td>{{curretUserData.Name}}</td>
+                        <td>{{curretUserData.email}}</td>
+                        <td>{{curretUserData.companyname}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </ng-container>
+                  </div>
+                </div>
+                <div class="card tab-pane" id="review-classic" role="tabpanel" aria-labelledby="review-tab-classic">
+                  <div
+                    class="card-body collapse show p-0"
+                    id="collapseTwo"
+                    aria-labelledby="review-classic-a"
+                    data-parent="#accordionExample"
+                  >
+                    <div>
+                      Heading Heading Heading Heading
+                    </div>
+                  </div>
+                </div>
+                <div class="card tab-pane" id="saved-classic" role="tabpanel" aria-labelledby="saved-tab-classic">
+                  <div
+                    class="card-body collapse show p-0"
+                    id="collapseThree"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordionExample"
+                  >
+                    <div>
+                      Heading Heading Heading Heading
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Classic tabs -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

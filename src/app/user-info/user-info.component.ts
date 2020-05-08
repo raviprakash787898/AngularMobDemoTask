@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import { AppConfigService } from '../app-config.service';
 import { UserData } from 'src/assets/models/userdata';
 
@@ -13,13 +13,25 @@ export class UserInfoComponent implements OnInit {
   userData: UserData[];
   curretUserData: any;
   userObj: any = [];
+  selectedTab: any = 'search';
+  mySubscription: any;
   
   constructor(private route: ActivatedRoute,
     private router: Router,
     private appConfigService: AppConfigService) {
+
     this.route.params.subscribe( params => {
      this.id = params['id'];
      console.log("Current Id : ",this.id);
+    });
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.router.navigated = false;
+      }
     });
   }
 
@@ -35,4 +47,13 @@ export class UserInfoComponent implements OnInit {
     });
   }
 
+  showUser(user: UserData){
+    this.router.navigate(['userinfo', user.id]);
+  }
+  
+  ngOnDestroy() {
+  if (this.mySubscription) {
+    this.mySubscription.unsubscribe();
+  }
+}
 }
