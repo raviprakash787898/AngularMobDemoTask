@@ -1,2 +1,0 @@
-# AngularDemoTask
-Angular Demo Task
